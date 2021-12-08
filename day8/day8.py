@@ -50,14 +50,14 @@ def deduce_all_output():
 
 	for line in lines:
 		uniques, output = line
+		uniques, output = list(map(set, uniques)), map(set, output)
 		line_mapping = { }
 
-		# On identifie d'abord les longueurs uniques
+		# On identifie d'abord les longueurs uniques cad les nombres 1 4 7 et 8
 		for nombre in uniques:
 			n = len(nombre)
 			if n in correspondances_uniques.keys():
-				line_mapping[correspondances_uniques[n]] = set(nombre)
-				continue
+				line_mapping[correspondances_uniques[n]] = nombre
 
 		# On construit le set du petit "L" à gauche du 4, en gros la différence entre 4 et 1
 		diff = line_mapping[4] - line_mapping[1]
@@ -68,46 +68,36 @@ def deduce_all_output():
 			if n in correspondances_uniques.keys():
 				continue
 
-			s = set(nombre)
 			# C'est un 2, 3 ou 5
 			if n == 5:
 				# Il a la ligne du 1 dedans, c'est un 3
-				if line_mapping[1].issubset(s):
-					line_mapping[3] = s
-					continue
+				if line_mapping[1].issubset(nombre):
+					line_mapping[3] = nombre
 				# Il a le petit bout du 4 dedans donc c'est un 5
-				elif diff.issubset(s):
-					line_mapping[5] = s
-					continue
+				elif diff.issubset(nombre):
+					line_mapping[5] = nombre
 				# C'est forcément un 2
 				else:
-					line_mapping[2] = s
-					continue
+					line_mapping[2] = nombre
 
 			# C'est un 0, un 6 ou un 9
-			if n == 6:
+			elif n == 6:
 				# Le symbole contient celui du 4, c'est un 9
-				if line_mapping[4].issubset(s):
-					line_mapping[9] = s
-					continue
+				if line_mapping[4].issubset(nombre):
+					line_mapping[9] = nombre
 				# Il contient le bout de 4, c'est un 6
-				elif diff.issubset(s):
-					line_mapping[6] = s
-					continue
+				elif diff.issubset(nombre):
+					line_mapping[6] = nombre
 				# C'est forcément un 0
 				else:
-					line_mapping[0] = s
-					continue
+					line_mapping[0] = nombre
 
 		# On a créé les correspondances pour cette ligne, on peut décoder la sortie
 
 		for i, nb in enumerate(output):
-			s = set(nb)
 			for k, v in line_mapping.items():
-				if v == s:
+				if v == nb:
 					total += k * 10 ** (3 - i)
+					break
 
 	return total
-
-
-print(deduce_all_output())
