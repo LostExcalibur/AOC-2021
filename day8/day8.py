@@ -21,14 +21,8 @@ def easy_digits():
 	"""
 
 	lines = parse_input("day8_input.txt")
-	compte = 0
 
-	for line in lines:
-		_, output = line
-		for nombre in output:
-			compte += 1 if len(nombre) in { 2, 3, 4, 7 } else 0
-
-	return compte
+	return sum(sum(len(nombre) in { 2, 3, 4, 7 }for nombre in output) for _, output in lines)
 
 
 def deduce_all_output():
