@@ -93,4 +93,10 @@ def also_diagonal_overlap():
 	return sum(len(list(filter(lambda x: x > 1, line))) for line in grid)
 
 
-print(at_least_2_overlaps())
+def main():
+	print(f"Solution de la partie 1 : {at_least_2_overlaps()}")
+	print(f"Solution de la partie 2 : {also_diagonal_overlap()}")
+
+
+if __name__ == "__main__":
+	main()

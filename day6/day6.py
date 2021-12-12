@@ -44,7 +44,7 @@ def nb_poissons_plus_lgt():
 	:rtype: int
 	"""
 
-	# Devient très lent un peut après 100 générations
+	# Devient très lent un peu après 100 générations
 	# return simulate(256)
 
 	with open("day6_input.txt", 'r') as file:
@@ -63,4 +63,10 @@ def nb_poissons_plus_lgt():
 	return sum(num_per_day)
 
 
-print(nb_poissons_plus_lgt())
+def main():
+	print(f"Solution de la partie 1 : {nb_poissons_lanterne()}")
+	print(f"Solution de la partie 2 : {nb_poissons_plus_lgt()}")
+
+
+if __name__ == "__main__":
+	main()

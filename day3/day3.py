@@ -78,4 +78,10 @@ def calculate_life_support_rating():
 	return int(oxygene[0], 2) * int(co2[0], 2)
 
 
-# print(calculate_life_support_rating())
+def main():
+	print(f"Solution de la partie 1 : {calculate_power_consumption()}")
+	print(f"Solution de la partie 2 : {calculate_life_support_rating()}")
+
+
+if __name__ == "__main__":
+	main()

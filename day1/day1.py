@@ -39,5 +39,10 @@ def number_sum_increased():
 	return len(plus_grandes)
 
 
-# print(number_times_increased())
-print(number_sum_increased())
+def main():
+	print(f"Solution de la partie 1 : {number_times_increased()}")
+	print(f"Solution de la partie 2 : {number_sum_increased()}")
+
+
+if __name__ == "__main__":
+	main()

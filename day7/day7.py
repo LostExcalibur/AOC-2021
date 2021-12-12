@@ -19,10 +19,10 @@ def cout(x1: int, x2: int) -> int:
 
 def align_horiz_positions():
 	"""
-	Partie  1 : Etant donné une liste de positions horizontales, trouve la position pour laquelle le coût total
+	Partie 1 : Etant donné une liste de positions horizontales, trouve la position pour laquelle le coût total
 	du déplacement de chacun des crabes à cette position est minimal
 
-	:return: Le coût total des déplacement
+	:return: Le coût total des déplacements
 	:rtype: int
 	"""
 	init = parse_input_file("day7_input.txt")
@@ -34,7 +34,7 @@ def align_horiz_positions():
 
 def updated_cost():
 	"""
-	Partie 2 : Cette fois, le coût augmente de 1 par unité de distance, donc 1 -> 2 donne 1 mais 1 -> 3 donne 3
+	Partie 2 : Cette fois, le coût augmente de 1 par unité de distance, donc 1 ? 2 donne 1, mais 1 ? 3 donne 3
 
 	:return: Le coût minimal
 	:rtype: int
@@ -51,4 +51,10 @@ def updated_cost():
 	return min(couts)
 
 
-print(updated_cost())
+def main():
+	print(f"Solution de la partie 1 : {align_horiz_positions()}")
+	print(f"Solution de la partie 2 : {updated_cost()}")
+
+
+if __name__ == "__main__":
+	main()

@@ -86,7 +86,7 @@ def final_score_lose():
 				if all(map(lambda x: x in called, plateau[:, i])) or all(map(lambda x: x in called, plateau[i, :])):
 					gagne[idx] = True
 
-	# On a trouve celui qui gagne en dernier
+	# On a trouvé celui qui gagne en dernier
 	perdant = plateaux[gagne.index(False)]
 
 	# On continue jusqu'à ce qu'il gagne
@@ -101,4 +101,10 @@ def final_score_lose():
 	return sum(sum(filter(lambda x: x not in called, perdant[i])) for i in range(5)) * called[-1]
 
 
-print(final_score_lose())
+def main():
+	print(f"Solution de la partie 1 : {final_score_win()}")
+	print(f"Solution de la partie 2 : {final_score_lose()}")
+
+
+if __name__ == "__main__":
+	main()

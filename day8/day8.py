@@ -13,7 +13,7 @@ def parse_input(filename: str) -> list[tuple[list[str], list[str]]]:
 
 def easy_digits():
 	"""
-	Partie 1 : On se concentre d'abord sur les chiffres faciles, c'est à dire 1, 4, 7 et 8 car ils ont
+	Partie 1 : On se concentre d'abord sur les chiffres faciles, c'est-à-dire 1, 4, 7 et 8 car ils ont
 	chacun un nombre unique de segments.
 
 	:return: Le nombre de fois que ces chiffres sont apparus
@@ -95,3 +95,12 @@ def deduce_all_output():
 					break
 
 	return total
+
+
+def main():
+	print(f"Solution de la partie 1 : {easy_digits()}")
+	print(f"Solution de la partie 2 : {deduce_all_output()}")
+
+
+if __name__ == "__main__":
+	main()

@@ -60,4 +60,10 @@ def follow_new_instructions() -> int:
 	return horiz * depth
 
 
-print(follow_new_instructions())
+def main():
+	print(f"Solution de la partie 1 : {follow_instructions()}")
+	print(f"Solution de la partie 2 : {follow_new_instructions()}")
+
+
+if __name__ == "__main__":
+	main()
